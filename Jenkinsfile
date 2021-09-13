@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy to Integration ') {
             steps {
-                sh 'cp "/opt/tomcat/.jenkins/workspace/final project/target/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war" /opt/tomcat/latest/webapps'
+                sh 'cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war" /opt/tomcat/latest/webapps'
             }
         }
     }   
