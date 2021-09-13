@@ -17,8 +17,13 @@ pipeline {
 		stage('Test'){
             steps {
                 sh '''cd spring-boot-package-war
-		mvn test'''
+				mvn test'''
             }
+			post {
+				always {
+					junit '**/surefire-reports/**/*.xml'
+				}
+			}
         }
         stage('Deploy to Integration ') {
             steps {
@@ -28,7 +33,7 @@ pipeline {
         }
 		stage('Artifacts') {
 		  steps {
-			archiveArtifacts 'spring-boot-package-war/target/*.war', followSymlinks: false
+			archiveArtifacts '**/target/*.war', followSymlinks: false
       }
     }
     }   
