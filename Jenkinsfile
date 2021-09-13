@@ -28,7 +28,7 @@ pipeline {
         }
 		stage('Artifacts') {
 		  steps {
-			archiveArtifacts artifacts: 'spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war', followSymlinks: false
+			archiveArtifacts 'spring-boot-package-war/target/*.war', followSymlinks: false
       }
     }
     }   
