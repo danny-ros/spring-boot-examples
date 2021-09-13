@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    label 'master'
+    node {
+      label 'centos7'
+    }
+
   }
   stages {
     stage('checkout code') {
