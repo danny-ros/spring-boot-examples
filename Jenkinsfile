@@ -8,18 +8,13 @@ pipeline {
                 git branch: 'danny_sol', url: 'https://github.com/danny-ros/spring-boot-examples.git'
             }
         }
-        stage('Build'){
+        stage('Build and Test'){
             steps {
                 sh '''cd spring-boot-package-war
-		mvn compile'''
+		mvn package'''
             }
         }
-	stage('Test'){
-            steps {
-                sh '''cd spring-boot-package-war
-		mvn test'''
-            }
-        }
+		
         stage('Deploy to Integration ') {
             steps {
                 sh 'cp "/opt/tomcat/.jenkins/workspace/final project/target/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war" /opt/tomcat/latest/webapps'
