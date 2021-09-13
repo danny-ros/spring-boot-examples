@@ -35,7 +35,7 @@ pipeline {
     stage('Deploy to Integration ') {
       steps {
         sh '''cd spring-boot-package-war
-				mvn build-helper:parse-version versions:set -DnewVersion=0.0.$BUILD_ID-SNAPSHOT versions:commit
+				mvn build-helper:parse-version versions:set -DnewVersion=0.0.2.$BUILD_ID-SNAPSHOT versions:commit
 				mvn package'''
       }
     }
