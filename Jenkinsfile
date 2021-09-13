@@ -32,9 +32,14 @@ pipeline {
             }
         }
 		stage('Artifacts') {
-		  steps {
-			archiveArtifacts artifacts: 'spring-boot-package-war/target/*.war', followSymlinks: false
-      }
-    }
+			steps {
+				archiveArtifacts artifacts: 'spring-boot-package-war/target/*.war', followSymlinks: false
+			}
+		}
+		stage('slack') {
+			steps {
+				slackSend channel: 'danny-dev', color: '#439FE0', message: 'new mvn build', tokenCredentialId: 'Slack'
+			}
+		}
     }   
 }
