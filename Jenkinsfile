@@ -5,7 +5,7 @@ pipeline {
     stages{
         stage('checkout code'){
             steps {
-                git branch: 'IditOryDanny_2_sol', url: 'https://github.com/danny-ros/spring-boot-examples.git'
+                git branch: 'danny_sol', url: 'https://github.com/danny-ros/spring-boot-examples.git'
             }
         }
         stage('Build'){
