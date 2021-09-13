@@ -22,8 +22,14 @@ pipeline {
         }
         stage('Deploy to Integration ') {
             steps {
-                sh 'cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war" /opt/tomcat/latest/webapps'
+                sh 'cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.1-SNAPSHOT.war" /opt/tomcat/latest/webapps/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war'
             }
         }
+		stage('packege  {mvn clean packege}') {
+		  steps {
+			sh '''cd spring-boot-package-war  
+			mvn clean package'''
+      }
+    }
     }   
 }
