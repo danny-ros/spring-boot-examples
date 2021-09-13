@@ -22,10 +22,12 @@ pipeline {
         }
         stage('Deploy to Integration ') {
             steps {
-                sh 'cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.1-SNAPSHOT.war" /opt/tomcat/latest/webapps/spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war'
+                sh '''cd spring-boot-package-war
+				mvn build-helper:parse-version versions:set -DnewVersion=0.0.$BUILD_ID-SNAPSHOT versions:commit
+				cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.*-SNAPSHOT.war" /opt/tomcat/latest/webapps'''
             }
         }
-		stage('packege  {mvn clean packege}') {
+		stage('packege') {
 		  steps {
 			sh '''cd spring-boot-package-war  
 			mvn clean package'''
