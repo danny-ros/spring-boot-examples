@@ -33,7 +33,7 @@ pipeline {
         }
 		stage('Artifacts') {
 		  steps {
-			archiveArtifacts '**/target/*.war', followSymlinks: false
+			archiveArtifacts artifacts: 'spring-boot-package-war/target/*.war', followSymlinks: false
       }
     }
     }   
