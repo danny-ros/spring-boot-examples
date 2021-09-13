@@ -10,14 +10,14 @@ pipeline {
         }
         stage('Build'){
             steps {
-                sh '''cd spring-boot-package-war'''
-				sh '''mvn compile'''
+                sh '''cd spring-boot-package-war
+		mvn compile'''
             }
         }
 		stage('Test'){
             steps {
                 sh '''cd spring-boot-package-war
-				mvn test'''
+		mvn test'''
             }
         }
         stage('Deploy to Integration ') {
