@@ -26,10 +26,9 @@ pipeline {
 				mvn build-helper:parse-version versions:set -DnewVersion=0.0.$BUILD_ID-SNAPSHOT versions:commit'''
             }
         }
-		stage('packege') {
+		stage('Artifacts') {
 		  steps {
-			sh '''cd spring-boot-package-war  
-			mvn clean package'''
+			archiveArtifacts artifacts: 'spring-boot-package-war-0.0.${BUILD_ID}-SNAPSHOT.war', followSymlinks: false
       }
     }
     }   
