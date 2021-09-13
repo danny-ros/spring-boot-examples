@@ -23,8 +23,7 @@ pipeline {
         stage('Deploy to Integration ') {
             steps {
                 sh '''cd spring-boot-package-war
-				mvn build-helper:parse-version versions:set -DnewVersion=0.0.$BUILD_ID-SNAPSHOT versions:commit
-				cp "/opt/tomcat/.jenkins/workspace/spring-boot-examples/target/spring-boot-package-war-0.0.*-SNAPSHOT.war" /opt/tomcat/latest/webapps'''
+				mvn build-helper:parse-version versions:set -DnewVersion=0.0.$BUILD_ID-SNAPSHOT versions:commit'''
             }
         }
 		stage('packege') {
