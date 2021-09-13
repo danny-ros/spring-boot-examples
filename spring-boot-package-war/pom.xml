@@ -53,7 +53,7 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.0</version>
-			</dependency><div class="open_grepper_editor" title="Edit & Save To Grepper"></div>
+		</dependency>
 	</dependencies>
 	
 	<build>
